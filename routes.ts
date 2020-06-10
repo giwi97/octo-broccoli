@@ -1,5 +1,6 @@
 import { Router } from 'https://deno.land/x/oak/mod.ts'
 import { getProducts } from './controller/products.ts'
+import { addProducts } from './controller/products.ts'
 
 const router = new Router()
 
