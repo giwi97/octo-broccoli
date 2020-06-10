@@ -3,6 +3,9 @@ import { getProducts } from './controller/products.ts'
 
 const router = new Router()
 
-router.get('/broco/v1/products', getProducts)
+router
+    .get('/broco/v1/products', getProducts)
+    //.get('/broco/v1/products/:id', getSpecificProduct)
+    //.post('')
 
 export default router
