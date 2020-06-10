@@ -1,12 +1,10 @@
+import { RouterContext } from 'https://deno.land/x/oak/mod.ts'
 // @desc Get all the products
 // @route GET /broco/api/products
 
-const getProducts = ({ response }: { response: any }) => {
+const getProducts = (ctx: RouterContext) => {
 
-    response.body = {
-        success: true,
-        data: products
-    }
+    ctx.response.body = 'Get products'
 
 }
 
