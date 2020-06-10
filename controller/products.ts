@@ -13,14 +13,27 @@ const getProducts = async (ctx: RouterContext) => {
 
 }
 
-// @route POST /broco/api/products
+//@route POST /broco/api/products
 
 const addProducts = async (ctx: RouterContext) => {
 
-    const products = await productsCollection.find();
+    const {value: {name, uprice, description}} = await ctx.request.body()
+
+    const products: any = {
+        name,
+        uprice,
+        description,
+        date: new Date()
+    };
+
+    const id = await productsCollection.insertOne(products)
+    console.log(id)
+
+    products._id = id
+    ctx.response.status = 201
     ctx.response.body = products
 
 }
 
-export { getProducts }
-export { addProducts }
+
+export { getProducts, addProducts }
