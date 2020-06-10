@@ -6,6 +6,6 @@ const router = new Router()
 router
     .get('/broco/v1/products', getProducts)
     //.get('/broco/v1/products/:id', getSpecificProduct)
-    //.post('')
+    .post('/broco/v1/products', addProducts)
 
 export default router
