@@ -69,4 +69,15 @@ const updateProducts = async (ctx: RouterContext) => {
 
 }
 
-export { getProducts, addProducts, getProductsById, updateProducts }
+// @route DELETE /broco/api/products/:id
+
+const deleteProducts = async (ctx: RouterContext) => {
+
+    const id = ctx.params.id
+    const product = await productsCollection.deleteOne({_id: {$oid: id}})
+
+    
+
+}
+
+export { getProducts, addProducts, getProductsById, updateProducts, deleteProducts }
