@@ -13,6 +13,16 @@ const getProducts = async (ctx: RouterContext) => {
 
 }
 
+// @route GET /broco/api/products/:id
+
+const getProductsById = async (ctx: RouterContext) => {
+
+    const id = ctx.params.id;
+    const products = await productsCollection.findOne({_id: id});
+    ctx.response.body = products
+
+}
+
 //@route POST /broco/api/products
 
 const addProducts = async (ctx: RouterContext) => {
@@ -36,4 +46,4 @@ const addProducts = async (ctx: RouterContext) => {
 }
 
 
-export { getProducts, addProducts }
+export { getProducts, addProducts, getProductsById }
