@@ -58,7 +58,14 @@ const updateProducts = async (ctx: RouterContext) => {
             description
         }
     })
-    ctx.response.body = products
+
+    if (!modifiedCount){
+        ctx.response.status = 404
+        ctx.response.body = {message: 'Product does not exists'}
+        return
+    }
+
+    ctx.response.body = 'Successfully updated'
 
 }
 
