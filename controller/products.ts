@@ -65,7 +65,7 @@ const updateProducts = async (ctx: RouterContext) => {
         return
     }
 
-    ctx.response.body = 'Successfully updated'
+    ctx.response.body = await productsCollection.findOne({_id: {$oid: id}})
 
 }
 
