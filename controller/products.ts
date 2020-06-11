@@ -52,9 +52,11 @@ const updateProducts = async (ctx: RouterContext) => {
     const id = ctx.params.id;
     const {value: {name, uprice, description}} = await ctx.request.body()
     const products = await productsCollection.updateOne({_id: {$oid: id}}, {
-        name,
-        uprice,
-        description
+        $set: {
+            name,
+            uprice,
+            description
+        }
     })
     ctx.response.body = products
 
