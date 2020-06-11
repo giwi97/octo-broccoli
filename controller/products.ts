@@ -76,7 +76,15 @@ const deleteProducts = async (ctx: RouterContext) => {
     const id = ctx.params.id
     const product = await productsCollection.deleteOne({_id: {$oid: id}})
 
-    
+    if(!product) {
+
+        ctx.response.status = 404
+        ctx.response.body = {message: 'Product does not exists'}
+        return
+
+    }
+
+    ctx.response.status = 204
 
 }
 
