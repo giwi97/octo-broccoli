@@ -18,7 +18,7 @@ const getProducts = async (ctx: RouterContext) => {
 const getProductsById = async (ctx: RouterContext) => {
 
     const id = ctx.params.id;
-    const products = await productsCollection.findOne({_id: id});
+    const products = await productsCollection.findOne({_id: {$oid: id}});
     ctx.response.body = products
 
 }
